@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa';
+import { FaSpotify } from 'react-icons/fa';
+import { FaEnvelope } from 'react-icons/fa';
+
+
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 
@@ -147,21 +151,23 @@ const toggleTheme = () => {
   {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
 </button> */}
 
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
-            <FaFacebookF size={20} />
-          </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter">
-            <FaTwitter size={20} />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+          <a href="mailto:sksingh95700@gmail.com" title="Mail">
+  <FaEnvelope size={20} />
+</a>
+
+          
+          <a href="https://www.instagram.com/sauravk_singhh?igsh=MTJ4ZGYza2J1M3NsZg==" target="_blank" rel="noopener noreferrer" title="Instagram">
             <FaInstagram size={20} />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/saurav-kumar-estside" target="_blank" rel="noopener noreferrer" title="LinkedIn">
             <FaLinkedinIn size={20} />
           </a>
+          
+
           <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" title="GitHub">
             <FaGithub size={20} />
           </a>
+          
         </div>
       </div>
     </nav>

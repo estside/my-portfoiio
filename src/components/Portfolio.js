@@ -21,7 +21,7 @@ import Resume from "./Resume";
 
 const handleDownload = async () => {
   try {
-    const response = await fetch("/resume_final.pdf");
+    const response = await fetch("/resume_deepseek.pdf");
     
 
 
@@ -34,7 +34,7 @@ const handleDownload = async () => {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "resume_final.pdf";
+    a.download = "resume_deepseek.pdf";
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -109,8 +109,8 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "Incline – Real-time Geo-Mapping Web App",
-      tech: "React, Django, Leaflet.js, JavaScript, HTML/CSS",
+      title: "Incline – Essential data and tools for climate adaptation, resiliency building, and community engagement.",
+      tech: "Django, Leaflet.js, JavaScript, HTML/CSS",
       description: [
         "Designed and developed the first production-ready UI using Django templates and vanilla JS.",
         "Integrated Leaflet.js to display real-time maps with server-side data rendering and interaction.",
@@ -132,23 +132,23 @@ const Portfolio = () => {
     },
     {
       title: "AI Doctor Chatbot – Multimodal Medical Assistant",
-      tech: "React, Python, Django, Whisper, OpenCV, Gradio, GROQ API, LangChain, ChromaDB",
+      tech: "Python, Django, Whisper, OpenCV, Gradio, GROQ API, LangChain, ChromaDB",
       description: [
         "AI chatbot with image and voice input; Whisper STT + OpenCV-based diagnostic tools.",
         "Integrated GROQ-hosted LLaMA for real-time diagnosis with streaming responses.",
         "RAG-powered knowledge retrieval using LangChain + ChromaDB; export chat as PDF.",
-        "Frontend built with React for fast and responsive UI.",
+       
       ],
       github: "https://github.com/estside/med_chat",
     },
     {
       title: "MazeSolver – AI Pathfinding Visualizer with RL + GNN",
-      tech: "React, Python, Django, Docker, BFS/DFS/A*/Dijkstra, Q-Learning, DQN, GNN",
+      tech: "Python, Django, Docker, BFS/DFS/A*/Dijkstra, Q-Learning, DQN, GNN",
       description: [
         "Interactive maze visualizer with BFS, DFS, A*, Dijkstra, IDDFS; animated path cost & heatmaps.",
         "Q-Learning & DQN agents for maze solving with reward visualization.",
         "GNN-based solver with PyTorch Geometric (80%+ success rate on dynamic maps).",
-        "React used for front-end UI and visualization animations.",
+        
       ],
       github: "https://github.com/estside/mazesolver",
       demo: "https://mazesolver-5b66.onrender.com/",
