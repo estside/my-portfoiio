@@ -75,11 +75,7 @@ const Navbar = () => {
         </div>
 
         {/* Center - Name */}
-        <div className="nav-center">
-          <a href="#home" onClick={handleNavLinkClick}>
-            <h2>SAURAV KUMAR</h2>
-          </a>
-        </div>
+        
 
         {/* Right - Social Icons and Theme Toggle */}
         <div className="nav-right">
