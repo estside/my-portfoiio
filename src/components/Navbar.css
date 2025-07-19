@@ -1,162 +1,202 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
-}
+/*
+* Navbar.css
+*
+* Contains styles for the main navigation bar,
+* including responsiveness and theme toggling appearance.
+* It now relies heavily on CSS variables defined in index.css.
+*/
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  /* background: #1E1933
-; */
-  position: sticky;
+  position: fixed; /* Stays at the top when scrolling */
   top: 0;
   width: 100%;
-  z-index: 999;
-  transition: 0.3s linear;
-}
-.left {
+  z-index: 1000; /* Ensures it stays on top of other content */
   display: flex;
   align-items: center;
-}
-.left a {
-  font-size: 35px;
-  text-decoration: none;
-  color: #edf2f4;
-  font-weight: 750;
-  transition: 0.3s linear;
-}
-.left a:hover,
-.sticky .left a:hover {
-  color: #22b455;
-}
-.right {
-  display: flex;
-  align-items: center;
-}
-.right a {
-  margin: 10.5px;
-  font-size: 18px;
-  text-decoration: none;
-  color: #edf2f4;
-  transition: 0.3s linear;
-}
-.right a:hover,
-.sticky .right a:hover {
-  color: #92e5a1;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background: var(--navbar-bg); /* Changed to background shorthand to accept gradient */
+  transition: box-shadow 0.3s ease; /* Only shadow transition, no color */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Softer shadow for light mode */
 }
 
-.sticky {
-  height: 90px;
-  background-color: #1E1933
-;
+.navbar.sticky {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Stronger shadow when sticky */
 }
-.sticky .left a {
-  color: #1E1933
-;
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px; /* Max width for content within navbar */
+  margin: 0 auto;
+  position: relative;
 }
-.sticky .right a {
-  color: #1E1933
-;
-}
-.menu {
-  align-self: center;
-  z-index: 10;
+
+/* Mobile Toggle Button (Hamburger/Close Icon) */
+.nav-toggle {
+  display: none; /* Hidden by default on larger screens */
+  background: none;
+  border: none;
+  color: var(--social-icon-color); /* Uses theme variable for icon color */
   cursor: pointer;
-  display: none;
-}
-.sticky .menu {
-  filter: invert(1);
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 800px) {
-  .menu {
-    display: block;
-  }
-  .right {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100vh;
-    background: #1E1933
-;
-    transition: 0.3s ease all;
-  }
-  .right a {
-    font-size: 30px;
-    margin: 15px 0;
-  }
-  .right.active {
-    right: 0;
-  }
-  .sticky .right {
-    background: #edf2f4;
-  }
-  
+  padding: 5px;
+  font-size: 24px; /* Default size for icon */
+  z-index: 1001; /* Ensure it's above other elements, especially mobile menu */
 }
 
+/* Left Navigation Links (Home, About, etc.) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between links */
+  /* Transition for mobile menu animation */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
 
-        .navbar-inner {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-          max-width: 1280px;
-          margin: 0 auto;
-          position: relative;
-        }
-
-        .nav-left,
-        .nav-right {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-        }
-
-        .nav-left a {
-          font-size: 18px;
-          color: #edf2f4;
-          text-decoration: none;
-          transition: color 0.3s linear, border 0.3s ease;
-        }
-
-        .nav-left a.active {
-          color: #00ff88;
-          font-weight: bold;
-          border-bottom: 2px solid #00ff88;
-        }
-
-        .nav-left a:hover {
-          color: #92e5a1;
-        }
-
-        .nav-center {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        .nav-center h2 {
-          color: #edf2f4;
-          font-size: 28px;
-          font-weight: 750;
-        }
-
-        .nav-right a {
-          color: white;
-          transition: transform 0.3s;
-        }
-        .nav-center a {
+.nav-left a {
+  font-size: 18px;
+  color: var(--navbar-link-color); /* Uses theme variable for link color */
   text-decoration: none;
+  transition: color 0.3s linear, border-bottom 0.3s ease;
+  padding-bottom: 2px; /* Space for the active border */
 }
 
-        .nav-right a:hover {
-          transform: scale(1.2);
-        }
+.nav-left a.active {
+  color: var(--navbar-link-active-color); /* Uses theme variable for active link color */
+  font-weight: bold;
+  border-bottom: 2px solid var(--navbar-link-active-color); /* Active link underline */
+}
+
+.nav-left a:hover {
+  color: var(--navbar-link-hover-color); /* Uses theme variable for hover color */
+}
+
+/* Center Section (Your Name/Logo) */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-center h2 {
+  color: var(--navbar-link-color); /* Matches link color for consistency */
+  font-size: 28px;
+  font-weight: 750;
+  white-space: nowrap; /* Prevents name from wrapping */
+}
+
+.nav-center a {
+  text-decoration: none; /* No underline for the name link */
+}
+
+/* Right Section (Social Icons, Theme Toggle) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between icons */
+}
+
+.nav-right a {
+  color: var(--social-icon-color); /* Uses theme variable for icon color */
+  transition: transform 0.3s;
+}
+
+.nav-right a:hover {
+  transform: scale(1.2);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--social-icon-color); /* Matches social icon color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Media Queries for Navbar Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px; /* Smaller padding on mobile */
+  }
+
+  /* Show the toggle button on small screens */
+  .nav-toggle {
+    display: block;
+    order: -1; /* Place it at the beginning of the flex container */
+  }
+
+  /* Mobile Navigation Links (hidden by default) */
+  .nav-left {
+    position: fixed; /* Overlay behavior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-color: var(--mobile-nav-bg); /* Uses theme variable for mobile menu background */
+    flex-direction: column; /* Stack links vertically */
+    justify-content: center; /* Center links vertically */
+    align-items: center;
+    gap: 30px; /* More space between links */
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction when hidden */
+    z-index: 999; /* Below the toggle button */
+  }
+
+  /* Show mobile navigation links */
+  .nav-left.show-mobile {
+    transform: translateX(0); /* Slide in from left */
+    opacity: 1;
+    pointer-events: auto; /* Allow interaction when shown */
+  }
+
+  .nav-left a {
+    font-size: 24px; /* Larger font for mobile links */
+    color: var(--navbar-link-color); /* Use theme variable */
+    width: fit-content; /* Ensure active border-bottom works correctly */
+  }
+
+  .nav-left a.active {
+    border-bottom: 3px solid var(--navbar-link-active-color); /* Thicker border for mobile */
+  }
+
+  /* Center element (name) adjustments for mobile */
+  .nav-center {
+    position: static; /* Remove absolute positioning */
+    transform: none; /* Remove translateX */
+    flex-grow: 1; /* Allow center to take available space */
+    text-align: center;
+    order: 0; /* Ensure center element stays in the middle */
+  }
+
+  .nav-center h2 {
+    font-size: 22px; /* Smaller font for name on mobile */
+  }
+
+  /* Right section (social icons) adjustments for mobile */
+  .nav-right {
+    gap: 10px;
+    order: 1; /* Place social icons at the end */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-center h2 {
+    font-size: 18px; /* Even smaller name font */
+  }
+
+  .nav-right a, .theme-toggle {
+    font-size: 18px; /* Slightly smaller icons */
+  }
+}

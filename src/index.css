@@ -1,13 +1,170 @@
-body {
+/*
+* index.css
+*
+* This file contains global styles, CSS variables for theming,
+* and base styles for the HTML body and general sections.
+*/
+
+/* Global Reset & Base Styles */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  /* Crucial: Set initial background and text color using variables */
+  background-color: var(--bg-color-primary);
+  color: var(--text-color-primary);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+/* === Define ALL Theme-Dependent Variables Here === */
+
+/* Default Light Mode Variables */
+:root {
+  /* Text Colors */
+  --text-color-primary: #2d2d2d; /* Dark text for primary elements */
+  --text-color-secondary: #555; /* Slightly lighter dark text for secondary elements */
+
+  /* Background Colors */
+  --bg-color-primary: #f5f5dc; /* Base light beige for main content */
+  --bg-color-secondary: #ffffff; /* Pure white for cards/sections */
+  --section-dark-bg: rgba(0, 0, 0, 0.03); /* Very subtle overlay for "dark" sections in light mode */
+
+  /* Highlight Colors (for buttons, active links, accents) */
+  --highlight-color: #007bff; /* Standard blue */
+  --highlight-gradient-start: #007bff;
+  --highlight-gradient-end: #6cb2eb;
+
+  /* Borders & Shadows */
+  --border-color: #d0d0d0; /* Light gray border */
+  --shadow-color: rgba(0, 0, 0, 0.05); /* Softer shadow */
+  --shadow-hover: rgba(0, 0, 0, 0.1); /* Slightly stronger hover shadow */
+
+  /* Form Inputs */
+  --form-input-bg: #ffffff;
+  --form-input-border: #ccc;
+  --form-input-placeholder: #999;
+  --form-input-focus-bg: #ffffff;
+
+  /* === Specific Light Mode Background Gradient with Animation === */
+  /* This is the base color of the animated background */
+  --hero-bg-base-color: #f5f5dc; /* Subtle beige */
+  /* The moving "clouds" or "ripples" */
+  --hero-bg-animated-effect: radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 50%),
+                             radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 50%);
+  --hero-bg-animated-size: 200% 200%; /* Make gradients larger than viewport for movement */
+
+  /* Combined background for #port in light mode */
+  --port-background-active: var(--hero-bg-base-color), var(--hero-bg-animated-effect);
+
+  /* === Navbar Colors (Fixed to Dark Mode Gradient in BOTH modes) === */
+  --navbar-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --navbar-link-color: #edf2f4;
+  --navbar-link-active-color: #00ff88;
+  --navbar-link-hover-color: #92e5a1;
+  --social-icon-color: white;
+  --mobile-nav-bg: #1a202c; /* Mobile nav background same as fixed navbar */
+}
+
+/* Dark Mode Overrides (when html has 'dark' class) */
+html.dark {
+  /* Text Colors */
+  --text-color-primary: #edf2f4; /* Light text */
+  --text-color-secondary: rgba(237, 242, 244, 0.9); /* Slightly darker light text */
+
+  /* Background Colors */
+  --bg-color-primary: #0a0a0a; /* Very dark main background */
+  --bg-color-secondary: rgba(255, 255, 255, 0.05); /* Subtle dark background for cards */
+  --section-dark-bg: rgba(0, 0, 0, 0.3);
+
+  /* Highlight Colors */
+  --highlight-color: #00ff88; /* Teal highlight color */
+  --highlight-gradient-start: #00ff88;
+  --highlight-gradient-end: #4fc3f7;
+
+  /* Borders & Shadows */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-hover: rgba(0, 0, 0, 0.5);
+
+  /* Form Inputs */
+  --form-input-bg: rgba(255, 255, 255, 0.1);
+  --form-input-border: rgba(255, 255, 255, 0.3);
+  --form-input-placeholder: rgba(255, 255, 255, 0.6);
+  --form-input-focus-bg: rgba(255, 255, 255, 0.15);
+
+  /* Specific Dark Mode Background Gradient */
+  --hero-bg-base-color: #0a0a0a; /* Fallback for dark mode main bg */
+  --hero-bg-animated-effect: none; /* No animated effect in dark mode */
+  --hero-bg-animated-size: 100% 100%; /* Reset size for dark mode */
+  --port-background-active: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  
+  /* Navbar colors for dark mode (already fixed) */
+  --navbar-link-color: #edf2f4;
+  --navbar-link-active-color: #00ff88;
+  --navbar-link-hover-color: #92e5a1;
+  --social-icon-color: white;
+  --mobile-nav-bg: #1a202c;
+}
+
+
+/* === Global Element Styles Using Variables === */
+
+/* Main Portfolio Container (Hero Section Background) */
+.portfolio-container#port { /* Added .portfolio-container for higher specificity */
+    background: var(--port-background-active) !important; /* Force this background */
+    background-size: var(--hero-bg-animated-size, 100% 100%) !important;
+    background-position: 0% 0% !important; /* Ensure initial position is consistent */
+    animation: none !important; /* Disable animation by default */
+    color: var(--text-color-primary); /* Set text color directly */
+    transition: background 0.3s ease, color 0.3s ease !important;
+}
+
+/* Apply animation ONLY in light mode */
+html:not(.dark) .portfolio-container#port { /* Target specifically in light mode */
+    animation: lightBgShift 30s ease-in-out infinite alternate !important; /* Apply animation for light mode */
+}
+
+/* General section styling */
+section {
+  min-height: 70vh; /* Reduced height for each section */
+  padding: 4rem 2rem; /* Consistent vertical and horizontal padding */
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-color-primary); /* Main section background */
+  color: var(--text-color-primary);
+}
+
+/* Sections that should look 'darker' in light mode (e.g., About, Projects) */
+.section-dark {
+  background: var(--section-dark-bg);
+  backdrop-filter: blur(10px);
+}
+
+/* === Keyframes === */
+@keyframes lightBgShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* === Responsive Adjustments for General Sections === */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1.5rem; /* Smaller padding on tablet/mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2.5rem 1rem; /* Even smaller padding on very small mobile */
+    min-height: 50vh; /* Adjust min height further for very small screens if content overflows */
+  }
 }

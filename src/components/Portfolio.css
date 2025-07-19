@@ -1,496 +1,602 @@
+/*
+* Portfolio.css
+*
+* IMPORTANT: Make sure this file is imported into Portfolio.js like:
+* import './Portfolio.css';
+* All color values should be sourced from CSS variables defined in index.css.
+*/
 
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        
-        body {
-          font-family: 'Inter', sans-serif;
-          line-height: 1.6;
-          color: #333;
-          background: #0a0a0a;
-        }
-        
-        .portfolio-container {
-          background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-          min-height: 100vh;
-          position: relative;
-          overflow-x: hidden;
-        }
-        
-        .portfolio-container::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(120, 255, 198, 0.1) 0%, transparent 50%);
-          animation: gradientShift 8s ease-in-out infinite;
-        }
-        
-        @keyframes gradientShift {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.8; }
-        }
-        
-        .floating-elements {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-        }
-        
-        .floating-element {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          background: rgba(100, 255, 218, 0.3);
-          border-radius: 50%;
-          animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1000;
-          background: rgba(0, 0, 0, 0.9);
-          backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-          transition: all 0.3s ease;
-        }
-        
-        .nav-link {
-          position: relative;
-          transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-          color: #64ffda;
-          transform: translateY(-2px);
-        }
-        
-        .nav-link.active {
-          color: #64ffda;
-        }
-        
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: #64ffda;
-          transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-          width: 100%;
-        }
-        
-        .hero-section {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          position: relative;
-          z-index: 1;
-          padding-top: 80px;
-        }
-        
-        .hero-title {
-          font-size: 4rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-          text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-          animation: fadeInUp 1s ease-out;
-        }
-        
-        .hero-subtitle {
-          font-size: 1.5rem;
-          margin-bottom: 2rem;
-          color: rgba(255, 255, 255, 0.9);
-          animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        
-        .hero-description {
-          font-size: 1.1rem;
-          color: rgba(255, 255, 255, 0.8);
-          margin-bottom: 3rem;
-          line-height: 1.8;
-          max-width: 600px;
-          animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        
-        .cta-buttons {
-          display: flex;
-          gap: 1rem;
-          justify-content: center;
-          flex-wrap: wrap;
-          animation: fadeInUp 1s ease-out 0.6s both;
-        }
-        
-        .cta-button {
-          padding: 1rem 2rem;
-          border-radius: 50px;
-          font-weight: 600;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          cursor: pointer;
-          border: none;
-        }
-        
-        .cta-primary {
-          background: linear-gradient(45deg, #64ffda, #4fc3f7);
-          color: #000;
-        }
-        
-        .cta-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
-          color: #000;
-        }
-        
-        .cta-secondary {
-          background: transparent;
-          color: #fff;
-          border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .cta-secondary:hover {
-          background: rgba(255, 255, 255, 0.1);
-          transform: translateY(-3px);
-          color: #fff;
-        }
-        
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .section {
-          padding: 6rem 2rem;
-          position: relative;
-          z-index: 1;
-        }
-        
-        .section-dark {
-          background: rgba(0, 0, 0, 0.3);
-          backdrop-filter: blur(10px);
-        }
-        
-        .section-title {
-          font-size: 3rem;
-          font-weight: 700;
-          text-align: center;
-          margin-bottom: 3rem;
-          position: relative;
-        }
-        
-        .section-title::after {
-          content: '';
-          position: absolute;
-          bottom: -10px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 80px;
-          height: 4px;
-          background: linear-gradient(45deg, #64ffda, #4fc3f7);
-          border-radius: 2px;
-        }
-        
-        .project-card {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          padding: 2rem;
-          margin-bottom: 2rem;
-          transition: all 0.3s ease;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .project-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-          border-color: rgba(100, 255, 218, 0.3);
-        }
-        
-        .project-title {
-          font-size: 1.5rem;
-          font-weight: 600;
-          margin-bottom: 1rem;
-        }
-        
-        .project-tech {
-          color: #64ffda;
-          font-size: 0.9rem;
-          margin-bottom: 1rem;
-          font-weight: 500;
-        }
-        
-        .project-description {
-          color: rgba(255, 255, 255, 0.8);
-          margin-bottom: 1.5rem;
-          line-height: 1.6;
-          flex-grow: 1;
-        }
-        
-        .project-description ul {
-          list-style: none;
-          padding-left: 0;
-        }
-        
-        .project-description li {
-          margin-bottom: 0.5rem;
-          padding-left: 1.5rem;
-          position: relative;
-        }
-        
-        .project-description li::before {
-          content: '▶';
-          position: absolute;
-          left: 0;
-          color: #64ffda;
-        }
-        
-        .project-links {
-          display: flex;
-          gap: 1rem;
-          margin-top: auto;
-        }
-        
-        .project-link {
-          padding: 0.5rem 1rem;
-          border-radius: 25px;
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.3s ease;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-size: 0.9rem;
-          cursor: pointer;
-          border: none;
-        }
-        
-        .project-link.github {
-          background: rgba(255, 255, 255, 0.1);
-          color: #fff;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .project-link.github:hover {
-          background: rgba(255, 255, 255, 0.2);
-          color: #fff;
-        }
-        
-        .project-link.demo {
-          background: linear-gradient(45deg, #64ffda, #4fc3f7);
-          color: #000;
-        }
-        
-        .project-link.demo:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
-          color: #000;
-        }
-        
-        .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-          margin-top: 2rem;
-        }
-        
-        .skill-category {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 15px;
-          padding: 2rem;
-          transition: all 0.3s ease;
-        }
-        
-        .skill-category:hover {
-          transform: translateY(-5px);
-          border-color: rgba(100, 255, 218, 0.3);
-        }
-        
-        .skill-category h5 {
-          color: #64ffda;
-          font-weight: 600;
-          margin-bottom: 1rem;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        
-        .skill-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-        }
-        
-        .skill-tag {
-          background: rgba(100, 255, 218, 0.1);
-          color: #64ffda;
-          padding: 0.3rem 0.8rem;
-          border-radius: 20px;
-          font-size: 0.85rem;
-          border: 1px solid rgba(100, 255, 218, 0.2);
-          transition: all 0.3s ease;
-        }
-        
-        .skill-tag:hover {
-          background: rgba(100, 255, 218, 0.2);
-          transform: translateY(-2px);
-        }
-        
-        .about-content {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          padding: 3rem;
-          margin-top: 2rem;
-          max-width: 800px;
-          margin: 2rem auto 0;
-        }
-        
-        .about-content p {
-          color: rgba(255, 255, 255, 0.9);
-          font-size: 1.1rem;
-          line-height: 1.8;
-          margin-bottom: 1.5rem;
-        }
-        
-        .contact-form {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          padding: 3rem;
-          margin-top: 2rem;
-          max-width: 600px;
-          margin: 2rem auto 0;
-        }
-        
-        .form-group {
-          margin-bottom: 1.5rem;
-        }
-        
-        .form-label {
-          display: block;
-          margin-bottom: 0.5rem;
-          font-weight: 500;
-          color: #fff;
-        }
-        
-        .form-input {
-          width: 100%;
-          padding: 1rem;
-          background: rgba(255, 255, 255, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          border-radius: 10px;
-          color: #fff;
-          font-size: 1rem;
-          transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-          outline: none;
-          background: rgba(255, 255, 255, 0.15);
-          border-color: #64ffda;
-          box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
-        }
-        
-        .form-input::placeholder {
-          color: rgba(255, 255, 255, 0.6);
-        }
-        
-        .form-textarea {
-          resize: vertical;
-          min-height: 120px;
-        }
-        
-        .submit-btn {
-          background: linear-gradient(45deg, #64ffda, #4fc3f7);
-          color: #000;
-          border: none;
-          padding: 1rem 2rem;
-          border-radius: 50px;
-          font-weight: 600;
-          transition: all 0.3s ease;
-          width: 100%;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-        }
-        
-        .submit-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
-          color: #000;
-        }
-        
-        @media (max-width: 768px) {
-          .hero-title {
-            font-size: 2.5rem;
-          }
-          
-          .hero-subtitle {
-            font-size: 1.2rem;
-          }
-          
-          .section-title {
-            font-size: 2rem;
-          }
-          
-          .cta-buttons {
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          .skills-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .projects-grid {
-            grid-template-columns: 1fr;
-          }
+/* Initial background for portfolio-container is now controlled by JS via #port */
+.portfolio-container {
+  min-height: 70vh; /* Keep for hero section background */
+  position: relative;
+  overflow-x: hidden;
+}
 
-        }
-      
+/* Floating Elements (from previous iteration - these are decorative overlays) */
+.portfolio-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* These colors are intentionally fixed for the floating background effect */
+  background:
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 255, 198, 0.1) 0%, transparent 50%);
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.floating-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-element {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(100, 255, 218, 0.3); /* Fixed color for floating elements */
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column; /* Added to center content vertically better */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 10vh 2rem; /* Adjusted padding with responsive unit */
+  min-height: 70vh; /* Ensures it takes up enough space */
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Subtle glow effect for contrast */
+  color: var(--text-color-primary); /* Uses theme variable */
+  animation: fadeInUp 1s ease-out; /* Moved down for clarity */
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  margin-bottom: 2rem;
+  color: var(--text-color-secondary); /* Uses theme variable */
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: var(--text-color-secondary); /* Uses theme variable */
+  margin-bottom: 3rem;
+  line-height: 1.8;
+  max-width: 600px;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.cta-primary {
+  background: linear-gradient(45deg, var(--highlight-gradient-start), var(--highlight-gradient-end)); /* Uses theme variables */
+  color: #ffffff; /* White text for contrast on bright gradient */
+}
+
+.cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3); /* Updated shadow color to match highlight */
+  color: #ffffff; /* Stays white on hover */
+}
+
+.cta-secondary {
+  background: transparent;
+  color: var(--text-color-primary); /* Uses theme variable */
+  border: 2px solid var(--border-color); /* Uses theme variable for border */
+}
+
+.cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  color: var(--text-color-primary);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+  font-weight: 700;
+  text-align: center;
+  margin: 1.5rem auto 3rem; /* Center and add more bottom margin */
+  position: relative;
+  color: var(--text-color-primary); /* Uses theme variable */
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, var(--highlight-gradient-start), var(--highlight-gradient-end)); /* Uses theme variables */
+  border-radius: 2px;
+}
+
+/* Project Cards Layout and Styling */
+.projects-grid {
+  display: grid;
+  gap: 2rem; /* Gap between grid items */
+  margin-top: 2rem;
+  justify-content: center; /* Center grid if items don't fill entire row */
+
+  /* Default to 1 column on smaller screens, auto-fit 2 for medium */
+  grid-template-columns: repeat(auto-fit, minmax(min(calc(100% - 1rem), 320px), 1fr));
+}
+
+/* For large screens (e.g., desktop) - exactly 2 columns */
+@media (min-width: 992px) { /* Adjust this breakpoint as needed for "large screens" */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
+  }
+}
+
+.project-card {
+  background: var(--bg-color-secondary); /* Uses theme variable */
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color); /* Uses theme variable */
+  border-radius: 20px;
+  padding: 1.5rem; /* Adjusted padding to better fit content */
+  transition: all 0.3s ease;
+  height: auto; /* Allow height to expand with content */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px var(--shadow-color); /* Subtle shadow for definition (from previous fix) */
+  min-height: 280px; /* Ensure a minimum size */
+  overflow: visible; /* Crucial: Allow content to fully display */
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Subtle lift effect */
+  box-shadow: 0 8px 20px var(--shadow-hover); /* Stronger shadow on hover */
+  border-color: var(--highlight-color); /* Highlight border on hover */
+}
+
+.project-media-container {
+    margin-bottom: 0.8rem; /* Reduced margin for tighter fit */
+    border-radius: 8px; /* Slightly smaller border-radius for media */
+    overflow: hidden; /* Keep overflow hidden for the media itself */
+    background-color: #000; /* Dark background for media area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevent it from shrinking */
+    max-height: 150px; /* Set a fixed max height for media container */
+    width: 100%; /* Ensure it takes full width of card */
+}
+
+.project-media-container img,
+.project-media-container iframe { /* Ensure both image and iframe fit */
+    width: 100%; /* Ensure media fills width */
+    height: 100%; /* Ensure media fills height of container */
+    object-fit: contain; /* CRUCIAL: Fit the image within the container, preserving aspect ratio */
+    display: block;
+}
+
+
+.project-title {
+  font-size: clamp(1.2rem, 2.3vw, 1.4rem); /* Slightly adjusted font size */
+  font-weight: 600;
+  margin-bottom: 0.5rem; /* Reduced margin */
+  color: var(--text-color-primary); /* Uses theme variable */
+  line-height: 1.3;
+  overflow: hidden; /* Keep overflow hidden for title if it's very long */
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit title to 2 lines, but allow expansion if needed by removing this */
+  -webkit-box-orient: vertical;
+}
+
+.project-tech {
+  color: var(--highlight-color); /* Uses theme variable */
+  font-size: 0.85rem; /* Slightly adjusted font size */
+  margin-bottom: 0.8rem; /* Reduced margin */
+  font-weight: 500;
+}
+
+.project-description {
+  color: var(--text-color-secondary); /* Uses theme variable */
+  margin-bottom: 1rem; /* Reduced margin */
+  line-height: 1.5; /* Adjusted line height */
+  flex-grow: 1; /* Allows description to take up available space */
+  overflow: visible; /* Crucial: Allow content to fully display */
+  text-overflow: clip; /* Ensure no ellipsis from here if overflow is visible */
+  display: block; /* Change display back to block to remove line-clamp behavior */
+  -webkit-line-clamp: unset; /* Remove line clamping */
+  -webkit-box-orient: unset; /* Remove box orient */
+}
+.project-description ul {
+  list-style: none;
+  padding-left: 0;
+  max-height: none; /* Crucial: Allow list to expand fully */
+  overflow: visible; /* Ensure list content is fully visible */
+}
+
+.project-description li {
+  margin-bottom: 0.2em; /* Adjusted for tighter list spacing */
+  padding-left: 1.2rem; /* Adjusted for tighter spacing */
+  position: relative;
+}
+
+.project-description li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--highlight-color); /* Uses theme variable */
+}
+
+.project-links {
+  display: flex;
+  gap: 0.8rem; /* Slightly reduced gap */
+  margin-top: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 0.5rem; /* Small padding above links */
+}
+
+.project-link {
+  padding: 0.4rem 0.9rem; /* Slightly smaller padding */
+  border-radius: 20px; /* Slightly smaller border-radius */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem; /* Reduced icon gap */
+  font-size: 0.8rem; /* Slightly smaller font size */
+  cursor: pointer;
+  border: none;
+}
+
+.project-link.github {
+  background: var(--bg-color-secondary); /* Uses theme variable */
+  color: var(--text-color-primary); /* Uses theme variable */
+  border: 1px solid var(--border-color); /* Uses theme variable */
+}
+
+.project-link.github:hover {
+  background: var(--bg-color-primary); /* Uses theme variable */
+  color: var(--text-color-primary);
+  box-shadow: 0 2px 5px var(--shadow-color); /* Uses theme variable */
+}
+
+.project-link.demo {
+  background: linear-gradient(45deg, var(--highlight-gradient-start), var(--highlight-gradient-end)); /* Uses theme variables */
+  color: #ffffff;
+}
+
+.project-link.demo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Updated shadow color */
+  color: #ffffff;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill-category {
+  background: var(--bg-color-secondary);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  border-color: var(--highlight-color);
+  box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+.skill-category h5 {
+  color: var(--highlight-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--highlight-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(100, 255, 218, 0.2);
+  transform: translateY(-2px);
+}
+
+/* About Section */
+.about-content {
+  background: var(--bg-color-secondary);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-top: 2rem;
+  max-width: 800px;
+  margin: 2rem auto 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+.about-content:hover {
+  border-color: var(--highlight-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+.about-content p {
+  color: var(--text-color-secondary);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact Section */
+.contact-form {
+  background: var(--bg-color-secondary);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin: 2rem auto 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color-primary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  background: var(--form-input-bg);
+  border: 1px solid var(--form-input-border);
+  border-radius: 10px;
+  color: var(--text-color-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  background: var(--form-input-focus-bg);
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--form-input-placeholder);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  background: linear-gradient(45deg, var(--highlight-gradient-start), var(--highlight-gradient-end));
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Resume Section specific styling */
+.resume-card {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: var(--bg-color-secondary);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.resume-card:hover {
+    box-shadow: 0 8px 20px var(--shadow-hover);
+    border-color: var(--highlight-color);
+    transform: translateY(-2px);
+}
+
+.resume-card .preview-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.resume-card .download-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 18px;
+    background-color: var(--highlight-color);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.resume-card .download-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Alternate Background for Resume Section */
+section#resume {
+  background-color: var(--alt-section-bg-light); /* Default to light alternate background */
+  color: var(--alt-section-text-light); /* Default to light alternate text color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
+}
+
+/* Alternate Background for Contact Section */
+/* Assuming contact is after resume, so it alternates back to primary */
+section#contact {
+  background-color: var(--bg-color-primary); /* Revert to primary background for alternating effect */
+  color: var(--text-color-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Override alternate background for Dark Mode */
+html.dark section#resume {
+  background-color: black;
+  color: var(--alt-section-text-dark);
+}
+
+html.dark section#contact {
+  background-color: var(--dark-bg-primary); /* Match main dark background for alternating effect */
+  color: var(--dark-text-primary);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 8vh 1rem;
+    }
+    /* .section padding should be controlled by index.css mostly for consistency */
+    .project-card, .skill-category, .about-content, .contact-form {
+        padding: 1.5rem;
+    }
+    .projects-grid {
+        gap: 1.5rem;
+        grid-template-columns: 1fr; /* Force single column on smaller devices */
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-content, .contact-form {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 6vh 0.5rem;
+    }
+    /* .section padding should be controlled by index.css mostly for consistency */
+    .project-card, .skill-category, .about-content, .contact-form {
+        padding: 1rem;
+    }
+    .project-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .project-link {
+        width: 100%;
+        justify-content: center;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr; /* Force single column on very small screens */
+    }
+    .about-content, .contact-form {
+        padding: 1.5rem 1rem;
+    }
+}

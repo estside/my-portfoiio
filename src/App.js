@@ -8,18 +8,19 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Portfolio from './components/Portfolio';
 import Resume from './components/Resume';
+import Another from './components/Another';
 
 
 function App() {
   return (
-    <>
+     <div id="port" className="App">
       <Navbar />
       <Portfolio/>
+     
       
       
       
-      
-    </>
+    </div>
   );
 }
 
