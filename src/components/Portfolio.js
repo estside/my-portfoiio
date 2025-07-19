@@ -18,7 +18,7 @@ import './Portfolio.css';
 
 const handleDownload = async () => {
   try {
-    const response = await fetch("/Saurav_resume6.pdf");
+    const response = await fetch("/Resume.pdf");
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -28,7 +28,7 @@ const handleDownload = async () => {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Saurav_resume6.pdf";
+    a.download = "Resume.pdf";
     document.body.appendChild(a);
 a.click();
     a.remove();
