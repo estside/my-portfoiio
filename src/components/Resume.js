@@ -1,71 +1,50 @@
-// src/components/Resume.js
 import React from 'react';
-import { Download } from 'lucide-react'; // optional icon
+import { Download } from 'lucide-react'; // Import necessary icons
 
-const Resume = () => {
+// Define handleDownload outside the component if it doesn't rely on state/props
+const handleDownload = async () => {
+  try {
+    const response = await fetch("/Resume.pdf"); // Ensure this path is correct relative to public/
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Resume.pdf"; // Filename for download
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error("Resume download failed:", error);
+    alert("Failed to download resume. Please try again later.");
+  }
+};
+
+const Resume = ({ activeSection }) => { // activeSection prop if you need it here
   return (
-    <section id="resume" data-color="#0b0c10" style={styles.section}>
-      <h2 style={styles.heading}>Resume</h2>
-
-      <div style={styles.resumeCard}>
+    <section id="resume" className="section">
+      <h2 className="section-title">Resume</h2>
+      <div className="resume-card">
         <img
-          src="/preview.png" // optional image preview (you can replace this)
+          src="/preview.png" // Ensure this path is correct relative to public/
           alt="Resume Preview"
-          style={styles.previewImage}
+          className="preview-image"
         />
-
-        <a
-          href="/resume.pdf"
-          download="Saurav_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={styles.downloadBtn}
-        >
-          <Download size={18} style={{ marginRight: 8 }} />
-          Download Resume
-        </a>
+        <div style={{ position: "relative", zIndex: 10, display: 'flex', justifyContent: 'center' }}>
+          <button onClick={handleDownload} className="download-btn">
+            <Download size={18} style={{ marginRight: 8 }} />
+            Download Resume
+          </button>
+        </div>
       </div>
     </section>
   );
-};
-
-const styles = {
-  section: {
-    padding: '50px 20px',
-    textAlign: 'center',
-    backgroundColor: '#f7fafc',
-    minHeight: '100vh',
-  },
-  heading: {
-    fontSize: '2rem',
-    marginBottom: '30px',
-  },
-  resumeCard: {
-    maxWidth: '360px',
-    margin: '0 auto',
-    padding: '20px',
-    borderRadius: '12px',
-    backgroundColor: '#fff',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-  },
-  previewImage: {
-    width: '100%',
-    height: 'auto',
-    marginBottom: '16px',
-    borderRadius: '6px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-  },
-  downloadBtn: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    padding: '10px 18px',
-    backgroundColor: '#2563eb',
-    color: '#fff',
-    textDecoration: 'none',
-    fontWeight: 500,
-    borderRadius: '8px',
-    transition: 'background 0.3s',
-  },
 };
 
 export default Resume;
