@@ -95,7 +95,7 @@ const Navbar = () => {
           <a href="https://www.linkedin.com/in/saurav-kumar-estside" target="_blank" rel="noopener noreferrer" title="LinkedIn">
             <FaLinkedinIn size={20} />
           </a>
-          <a href="https://github.com/sauravkumarrr" target="_blank" rel="noopener noreferrer" title="GitHub">
+          <a href="https://github.com/estside" target="_blank" rel="noopener noreferrer" title="GitHub">
             <FaGithub size={20} />
           </a>
         </div>
