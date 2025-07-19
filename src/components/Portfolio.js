@@ -34,7 +34,7 @@ const handleDownload = async () => {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "resume_deepseek.pdf";
+    a.download = "Saurav_resume.pdf";
     document.body.appendChild(a);
     a.click();
     a.remove();
