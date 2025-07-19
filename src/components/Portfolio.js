@@ -700,7 +700,7 @@ const Portfolio = () => {
         <section
           id="home"
           className="hero-section"
-          ˇstyle={{ minHeight: "70vh" }}
+          style={{ minHeight: "70vh" }}
         >
           <div className="max-w-4xl mx-auto px-4">
             <h1 className="hero-title">Hello, I'm Saurav Kumar</h1>
