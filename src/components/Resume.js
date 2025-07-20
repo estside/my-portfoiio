@@ -14,7 +14,7 @@ const handleDownload = async () => {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Resume.pdf"; // Filename for download
+    a.download = "Saurav-Resume.pdf"; // Filename for download
     document.body.appendChild(a);
     a.click();
     a.remove();
