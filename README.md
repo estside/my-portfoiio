@@ -75,8 +75,8 @@ Follow these steps to get a local copy of the project up and running on your mac
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[Your-GitHub-Username]/[Your-Repository-Name].git
-    cd [Your-Repository-Name]
+    git clone https://github.com/estside/my-portfoiio.git
+    cd my-portfoiio
     ```
 2.  **Install dependencies:**
     ```bash
