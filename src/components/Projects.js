@@ -25,7 +25,7 @@ const Projects = ({ activeSection }) => { // activeSection prop if you need it h
         "Engineered an AI-powered symptom checker with Retrieval Augmented Generation (RAG).",
         "The RAG system dynamically pulls verified doctor data from the database to provide accurate, non-hallucinating recommendations with clickable links.",
       ],
-      github: "https://github.com/your_username/vaya", // Replace with your actual GitHub URL
+      github: "https://github.com/estside/Vaya", // Replace with your actual GitHub URL
       demo: null, // Removed the demo URL
       imageUrl: "/vaya.png", // Ensure you have a 'vaya.png' or similar image in your public/ folder
     },
