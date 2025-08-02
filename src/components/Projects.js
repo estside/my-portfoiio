@@ -17,6 +17,19 @@ const Projects = ({ activeSection }) => { // activeSection prop if you need it h
       imageUrl: "/incline.png", // Ensure this path is correct relative to public/
     },
     {
+      title: "Vaya – Your Local Healthcare Connection",
+      tech: "Python, Django, Django Channels, Groq API (Llama3), HTML/CSS, JavaScript",
+      description: [
+        "End-to-end full-stack healthcare platform for appointment booking and doctor management.",
+        "Built a real-time, persistent chat system using Django Channels for secure patient-doctor communication.",
+        "Engineered an AI-powered symptom checker with Retrieval Augmented Generation (RAG).",
+        "The RAG system dynamically pulls verified doctor data from the database to provide accurate, non-hallucinating recommendations with clickable links.",
+      ],
+      github: "https://github.com/your_username/vaya", // Replace with your actual GitHub URL
+      demo: null, // Removed the demo URL
+      imageUrl: "/vaya.png", // Ensure you have a 'vaya.png' or similar image in your public/ folder
+    },
+    {
       title: "AquaSweep – Underwater Rover with Edge AI & Depth Control",
       tech: "Python, OpenCV, Flask, ROS, Arduino, Raspberry Pi",
       description: [
@@ -26,17 +39,6 @@ const Projects = ({ activeSection }) => { // activeSection prop if you need it h
       ],
       github: "https://github.com/estside/-Aquasweep",
       imageUrl: "/rover.jpeg", // Ensure this path is correct
-    },
-    {
-      title: "AI Doctor Chatbot – Multimodal Medical Assistant",
-      tech: "Python, Django, Whisper, OpenCV, Gradio, GROQ API, LangChain, ChromaDB",
-      description: [
-        "AI chatbot with image and voice input; Whisper STT + OpenCV-based diagnostic tools.",
-        "Integrated GROQ-hosted LLaMA for real-time diagnosis with streaming responses.",
-        "RAG-powered knowledge retrieval using LangChain + ChromaDB; export chat as PDF.",
-      ],
-      github: "https://github.com/estside/med_chat",
-      imageUrl: "/ai-doctor.jpeg", // Ensure this path is correct
     },
     {
       title: "MazeSolver – AI Pathfinding Visualizer with RL + GNN",
