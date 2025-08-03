@@ -4,7 +4,7 @@ import { Download } from 'lucide-react'; // Import necessary icons
 // Define handleDownload outside the component if it doesn't rely on state/props
 const handleDownload = async () => {
   try {
-    const response = await fetch("/Saurav-Resume.pdf"); // Ensure this path is correct relative to public/
+    const response = await fetch("/Saurav_resume_final.pdf"); // Ensure this path is correct relative to public/
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
