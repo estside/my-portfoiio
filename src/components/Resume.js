@@ -32,7 +32,7 @@ const Resume = ({ activeSection }) => { // activeSection prop if you need it her
       <h2 className="section-title">Resume</h2>
       <div className="resume-card">
         <img
-          src="/preview.jpeg" // Ensure this path is correct relative to public/
+          src="/preview1.jpeg" // Ensure this path is correct relative to public/
           alt="Resume Preview"
           className="preview-image"
         />
