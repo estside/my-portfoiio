@@ -57,7 +57,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${sticky ? 'sticky' : ''}`} style={{ backgroundColor: 'var(--navbar-bg)' },{position:'sticky'}}>
+    <nav className={`navbar ${sticky ? 'sticky' : ''}`} style={{ backgroundColor: 'var(--navbar-bg)' , position:'sticky'}}>
       <div className="navbar-inner">
         {/* Mobile Toggle Button (Hamburger/Close Icon) */}
         <button className="nav-toggle" onClick={toggleNavLinks} aria-label="Toggle navigation">
