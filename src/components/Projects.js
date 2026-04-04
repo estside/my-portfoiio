@@ -3,19 +3,7 @@ import { Github, ExternalLink, FileText } from 'lucide-react';
 
 const Projects = ({ activeSection }) => { 
   const projectsData = [ 
-    {
-      title: "Predicting Protein Stability Changes (ΔΔG)",
-      tech: "Machine Learning, Siamese GNN, ESM-2, Bayesian Networks",
-      description: [
-        "Engineered a 1D-3D latent fusion architecture combining a Siamese Graph Neural Network (GNN) with a 150-million parameter Protein Language Model (ESM-2).",
-        "Achieved a Pearson Correlation of 0.7266 and Mean Absolute Error of 0.7472 kcal/mol, significantly surpassing traditional biophysical force fields.",
-        "Constructed a Hybrid Bayesian Network to map explicit biological causality, mathematically quantifying the vulnerability of protein surfaces to polarity shifts."
-      ],
-      github: null, 
-      demo: "https://huggingface.co/spaces/estside/3D-GNN-Stability-Predictor", 
-      paperUrl: "/paper.pdf", // Make sure your paper is saved as 'paper.pdf' in the public folder
-      imageUrl: "/paper_preview.png", // Make sure your image is saved as 'paper_preview.png' in the public folder
-    },
+    
     {
       title: "Incline – Essential data and tools for climate adaptation, resiliency building, and community engagement.",
       tech: "Django, Leaflet.js, JavaScript, HTML/CSS",
@@ -28,6 +16,19 @@ const Projects = ({ activeSection }) => {
       github: null,
       demo: "https://incline.iitmandi.ac.in/",
       imageUrl: "/incline.png", 
+    },
+    {
+      title: "Predicting Protein Stability Changes (ΔΔG)",
+      tech: "Machine Learning, Siamese GNN, ESM-2, Bayesian Networks",
+      description: [
+        "Engineered a 1D-3D latent fusion architecture combining a Siamese Graph Neural Network (GNN) with a 150-million parameter Protein Language Model (ESM-2).",
+        "Achieved a Pearson Correlation of 0.7266 and Mean Absolute Error of 0.7472 kcal/mol, significantly surpassing traditional biophysical force fields.",
+        "Constructed a Hybrid Bayesian Network to map explicit biological causality, mathematically quantifying the vulnerability of protein surfaces to polarity shifts."
+      ],
+      github: null, 
+      demo: "https://huggingface.co/spaces/estside/3D-GNN-Stability-Predictor", 
+      paperUrl: "/paper.pdf", // Make sure your paper is saved as 'paper.pdf' in the public folder
+      imageUrl: "/paper_preview.png", // Make sure your image is saved as 'paper_preview.png' in the public folder
     },
     {
       title: "Vaya – Your Local Healthcare Connection",
@@ -53,19 +54,7 @@ const Projects = ({ activeSection }) => {
       github: "https://github.com/estside/-Aquasweep",
       imageUrl: "/rover.jpeg", 
     },
-    {
-      title: "MazeSolver – AI Pathfinding Visualizer with RL + GNN",
-      tech: "Python, Django, Docker, BFS/DFS/A*/Dijkstra, Q-Learning, DQN, GNN",
-      description: [
-        "Interactive maze visualizer with BFS, DFS, A*, Dijkstra, IDDFS; animated path cost & heatmaps.",
-        "Q-Learning & DQN agents for maze solving with reward visualization.",
-        "GNN-based solver with PyTorch Geometric (80%+ success rate on dynamic maps).",
-      ],
-      github: "https://github.com/estside/mazesolver",
-      demo: "https://mazesolver-5b66.onrender.com/",
-      imageUrl: "/maze.png", 
-    },
-  ];
+      ];
 
   return (
     <section id="projects" className="section section-dark">
