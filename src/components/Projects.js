@@ -27,8 +27,8 @@ const Projects = ({ activeSection }) => {
       ],
       github: null, 
       demo: "https://huggingface.co/spaces/estside/3D-GNN-Stability-Predictor", 
-      paperUrl: "/paper.pdf", // Make sure your paper is saved as 'paper.pdf' in the public folder
-      imageUrl: "https://drive.google.com/file/d/1bfRVAf3sjTWpc_U5Wah1mxSKgGEZUOPV/view", // Make sure your image is saved as 'paper_preview.png' in the public folder
+      paperUrl: "https://drive.google.com/file/d/1bfRVAf3sjTWpc_U5Wah1mxSKgGEZUOPV/view?usp=sharing", // Make sure your paper is saved as 'paper.pdf' in the public folder
+      imageUrl: "/paper_preview.png", // Make sure your image is saved as 'paper_preview.png' in the public folder
     },
     {
       title: "Vaya – Your Local Healthcare Connection",
