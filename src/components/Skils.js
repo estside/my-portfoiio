@@ -1,18 +1,17 @@
 import React from 'react';
-import { Code, Database, Cpu, Brain } from 'lucide-react'; // Import necessary icons
+import { Code, Database, Cpu, Brain } from 'lucide-react';
 
-const Skills = ({ activeSection }) => { // activeSection prop if you need it here
-  const skillsData = { // Renamed to avoid conflict with prop
-    Languages: ["Python", "C++", "JavaScript", "Perl"],
+const Skills = ({ selectedSkill, onSelectSkill }) => {
+  const skillsData = {
+    Languages: ["Python", "C++", "JavaScript", "HTML/CSS"],
     "Frameworks & Libraries": [
-      "React",
       "Django",
-      "ROS",
-      "TensorFlow",
-      "Streamlit",
-      "Flask",
+      "React",
       "OpenCV",
-      "Gradio",
+      "Flask",
+      "ROS",
+      "Django Channels",
+      "Leaflet.js",
     ],
     "Tools & Platforms": [
       "Git",
@@ -20,16 +19,18 @@ const Skills = ({ activeSection }) => { // activeSection prop if you need it her
       "Linux",
       "Raspberry Pi",
       "Arduino",
-      "SolidWorks",
+      "Groq API",
+      "Hugging Face",
     ],
     Concepts: [
-      "Sensor Fusion",
-      "Kalman Filtering",
-      "Data Preprocessing",
-      "Control Systems",
-      "Reinforcement Learning",
+      "Machine Learning",
+      "Siamese GNN",
+      "ESM-2",
+      "Bayesian Networks",
+      "RAG",
       "LLMs",
-      "RAG (Retrieval-Augmented Generation)",
+      "Kalman Filtering",
+      "Control Systems",
     ],
   };
 
@@ -40,6 +41,18 @@ const Skills = ({ activeSection }) => { // activeSection prop if you need it her
     Concepts: <Brain size={20} />,
   };
 
+  const handleSkillClick = (skill) => {
+    // Toggle skill selection on click
+    const newSkill = selectedSkill === skill ? null : skill;
+    onSelectSkill(newSkill);
+
+    // Smooth scroll down to the projects section
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="skills" className="section">
       <div className="max-w-7xl mx-auto px-4">
@@ -47,16 +60,27 @@ const Skills = ({ activeSection }) => { // activeSection prop if you need it her
         <div className="skills-grid">
           {Object.entries(skillsData).map(([category, items]) => (
             <div key={category} className="skill-category">
-              <h5>
+              <h3 className="category-title flex items-center gap-2">
                 {skillIcons[category]}
                 {category}
-              </h5>
-              <div className="skill-tags">
-                {items.map((skill, i) => (
-                  <span key={i} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
+              </h3>
+              <div className="skill-tags flex flex-wrap gap-2 mt-3">
+                {items.map((skill, i) => {
+                  const isActive = selectedSkill === skill;
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => handleSkillClick(skill)}
+                      className={`skill-tag cursor-pointer text-sm px-3 py-1.5 rounded-md transition-all duration-200 ${
+                        isActive
+                          ? "bg-blue-600 text-white font-bold scale-105 shadow-md"
+                          : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
+                      }`}
+                    >
+                      {skill}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ))}

@@ -2,21 +2,22 @@
 
 import React, { useState, useEffect } from 'react';
 
-
 // Import Portfolio.css from its location inside the components folder
-import './components/Portfolio.css'; // <--- THIS IS THE CHANGED PATH
+import './components/Portfolio.css'; 
 
 // Import all your section components from the 'components' folder
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skils';
+import Skills from './components/Skils'; // Check filename spelling if needed
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
+  // Shared state to track which skill is selected for project filtering
+  const [selectedSkill, setSelectedSkill] = useState(null);
 
   // Floating elements JSX
   const floatingElements = Array.from({ length: 20 }, (_, i) => (
@@ -69,7 +70,7 @@ function App() {
 
   return (
     <div className="App min-h-screen">
-      <Navbar/>
+      <Navbar />
       {/* Background Floating Elements */}
       <div className="floating-elements">
         {floatingElements}
@@ -80,8 +81,16 @@ function App() {
         {/* Render each section component directly, passing necessary props */}
         <Hero scrollToSection={scrollToSection} activeSection={activeSection} />
         <About activeSection={activeSection} />
-        <Skills activeSection={activeSection} />
-        <Projects activeSection={activeSection} />
+        <Skills 
+          activeSection={activeSection} 
+          selectedSkill={selectedSkill}
+          onSelectSkill={setSelectedSkill}
+        />
+        <Projects 
+          activeSection={activeSection} 
+          selectedSkill={selectedSkill}
+          onSelectSkill={setSelectedSkill}
+        />
         <Resume activeSection={activeSection} />
         <Contact activeSection={activeSection} />
       </div>
