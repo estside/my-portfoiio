@@ -136,6 +136,6 @@ Email: sksingh95700@gmail.com
 
 LinkedIn: https://www.linkedin.com/in/saurav-kumar-estside
 
-GitHub: https://www.google.com/search?q=https://github.com/sauravkumarrr
+GitHub: https://github.com/estside
 
 © 2025 Saurav Kumar. All Rights Reserved.
