@@ -1,8 +1,9 @@
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react'; // Import necessary icons
+import { Github, ExternalLink, FileText } from 'lucide-react'; 
 
-const Projects = ({ activeSection }) => { // activeSection prop if you need it here
-  const projectsData = [ // Renamed to avoid conflict with prop
+const Projects = ({ activeSection }) => { 
+  const projectsData = [ 
+    
     {
       title: "Incline – Essential data and tools for climate adaptation, resiliency building, and community engagement.",
       tech: "Django, Leaflet.js, JavaScript, HTML/CSS",
@@ -14,7 +15,33 @@ const Projects = ({ activeSection }) => { // activeSection prop if you need it h
       ],
       github: null,
       demo: "https://incline.iitmandi.ac.in/",
-      imageUrl: "/incline.png", // Ensure this path is correct relative to public/
+      imageUrl: "/incline.png", 
+    },
+    {
+      title: "Predicting Protein Stability Changes (ΔΔG)",
+      tech: "Machine Learning, Siamese GNN, ESM-2, Bayesian Networks",
+      description: [
+        "Engineered a 1D-3D latent fusion architecture combining a Siamese Graph Neural Network (GNN) with a 150-million parameter Protein Language Model (ESM-2).",
+        "Achieved a Pearson Correlation of 0.7266 and Mean Absolute Error of 0.7472 kcal/mol, significantly surpassing traditional biophysical force fields.",
+        "Constructed a Hybrid Bayesian Network to map explicit biological causality, mathematically quantifying the vulnerability of protein surfaces to polarity shifts."
+      ],
+      github: null, 
+      demo: "https://huggingface.co/spaces/estside/3D-GNN-Stability-Predictor", 
+      paperUrl: "https://drive.google.com/file/d/1bfRVAf3sjTWpc_U5Wah1mxSKgGEZUOPV/view?usp=sharing", // Make sure your paper is saved as 'paper.pdf' in the public folder
+      imageUrl: "/paper_preview.png", // Make sure your image is saved as 'paper_preview.png' in the public folder
+    },
+    {
+      title: "Vaya – Your Local Healthcare Connection",
+      tech: "Python, Django, Django Channels, Groq API (Llama3), HTML/CSS, JavaScript",
+      description: [
+        "End-to-end full-stack healthcare platform for appointment booking and doctor management.",
+        "Built a real-time, persistent chat system using Django Channels for secure patient-doctor communication.",
+        "Engineered an AI-powered symptom checker with Retrieval Augmented Generation (RAG).",
+        "The RAG system dynamically pulls verified doctor data from the database to provide accurate, non-hallucinating recommendations with clickable links.",
+      ],
+      github: "https://github.com/estside/Vaya", 
+      demo: null, 
+      imageUrl: "/vaya.png", 
     },
     {
       title: "AquaSweep – Underwater Rover with Edge AI & Depth Control",
@@ -25,32 +52,9 @@ const Projects = ({ activeSection }) => { // activeSection prop if you need it h
         "ROS–Arduino layer controlling 8 thrusters; Kalman-filtered depth holding with Bar30 & IMU (±3cm error).",
       ],
       github: "https://github.com/estside/-Aquasweep",
-      imageUrl: "/rover.jpeg", // Ensure this path is correct
+      imageUrl: "/rover.jpeg", 
     },
-    {
-      title: "AI Doctor Chatbot – Multimodal Medical Assistant",
-      tech: "Python, Django, Whisper, OpenCV, Gradio, GROQ API, LangChain, ChromaDB",
-      description: [
-        "AI chatbot with image and voice input; Whisper STT + OpenCV-based diagnostic tools.",
-        "Integrated GROQ-hosted LLaMA for real-time diagnosis with streaming responses.",
-        "RAG-powered knowledge retrieval using LangChain + ChromaDB; export chat as PDF.",
-      ],
-      github: "https://github.com/estside/med_chat",
-      imageUrl: "/ai-doctor.jpeg", // Ensure this path is correct
-    },
-    {
-      title: "MazeSolver – AI Pathfinding Visualizer with RL + GNN",
-      tech: "Python, Django, Docker, BFS/DFS/A*/Dijkstra, Q-Learning, DQN, GNN",
-      description: [
-        "Interactive maze visualizer with BFS, DFS, A*, Dijkstra, IDDFS; animated path cost & heatmaps.",
-        "Q-Learning & DQN agents for maze solving with reward visualization.",
-        "GNN-based solver with PyTorch Geometric (80%+ success rate on dynamic maps).",
-      ],
-      github: "https://github.com/estside/mazesolver",
-      demo: "https://mazesolver-5b66.onrender.com/",
-      imageUrl: "/maze.png", // Ensure this path is correct
-    },
-  ];
+      ];
 
   return (
     <section id="projects" className="section section-dark">
@@ -106,6 +110,17 @@ const Projects = ({ activeSection }) => { // activeSection prop if you need it h
                   >
                     <ExternalLink size={16} />
                     Live Demo
+                  </a>
+                )}
+                {project.paperUrl && (
+                  <a
+                    href={project.paperUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link paper"
+                  >
+                    <FileText size={16} />
+                    Paper
                   </a>
                 )}
               </div>

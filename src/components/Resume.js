@@ -4,7 +4,7 @@ import { Download } from 'lucide-react'; // Import necessary icons
 // Define handleDownload outside the component if it doesn't rely on state/props
 const handleDownload = async () => {
   try {
-    const response = await fetch("/Resume.pdf"); // Ensure this path is correct relative to public/
+    const response = await fetch("/Resume_final.pdf"); // Ensure this path is correct relative to public/
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -14,7 +14,7 @@ const handleDownload = async () => {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Resume.pdf"; // Filename for download
+    a.download = "Saurav_IITMandi.pdf"; // Filename for download
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -32,7 +32,7 @@ const Resume = ({ activeSection }) => { // activeSection prop if you need it her
       <h2 className="section-title">Resume</h2>
       <div className="resume-card">
         <img
-          src="/preview.png" // Ensure this path is correct relative to public/
+          src="Resume_Preview_new.png" // Ensure this path is correct relative to public/
           alt="Resume Preview"
           className="preview-image"
         />

@@ -57,7 +57,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${sticky ? 'sticky' : ''}`} style={{ backgroundColor: 'var(--navbar-bg)' },{position:'sticky'}}>
+    <nav className={`navbar ${sticky ? 'sticky' : ''}`} style={{ backgroundColor: 'var(--navbar-bg)' , position:'sticky'}}>
       <div className="navbar-inner">
         {/* Mobile Toggle Button (Hamburger/Close Icon) */}
         <button className="nav-toggle" onClick={toggleNavLinks} aria-label="Toggle navigation">
@@ -82,7 +82,7 @@ const Navbar = () => {
           <button onClick={toggleTheme} title="Toggle Theme" className="theme-toggle">
             {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
           </button>
-          <a href="mailto:sksingh95700@gmail.com" title="Mail">
+          <a href="mailto:saurav.iitmandi@gmail.com" title="Mail">
             <FaEnvelope size={20} />
           </a>
           <a href="https://www.instagram.com/sauravk_singhh?igsh=MTJ4ZGYza2J1M3NsZg==" target="_blank" rel="noopener noreferrer" title="Instagram">
