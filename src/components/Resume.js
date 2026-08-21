@@ -2,7 +2,7 @@ import React from 'react';
 import { Eye } from 'lucide-react'; 
 
 const handleViewPDF = () => {
-  window.open("/Saurav_resume.pdf", "_blank", "noopener,noreferrer");
+  window.open("/Saurav_updated.pdf", "_blank", "noopener,noreferrer");
 };
 
 const Resume = ({ activeSection }) => { 
