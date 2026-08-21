@@ -1,7 +1,8 @@
-// Navbar.js (This code is exactly the same as the one provided in the last response)
+// Navbar.js
 
 import React, { useEffect, useState } from 'react';
 import { FaEnvelope, FaInstagram, FaLinkedinIn, FaGithub, FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -93,6 +94,9 @@ const Navbar = () => {
           </a>
           <a href="https://github.com/estside" target="_blank" rel="noopener noreferrer" title="GitHub">
             <FaGithub size={20} />
+          </a>
+          <a href="https://leetcode.com/u/wowsaurav/" target="_blank" rel="noopener noreferrer" title="LeetCode">
+            <SiLeetcode size={20} />
           </a>
         </div>
       </div>
