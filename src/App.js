@@ -43,15 +43,6 @@ const projects = [
     tools: ['OpenCV', 'ROS', 'Arduino', 'Raspberry Pi'],
     links: [{ label: 'GitHub', href: 'https://github.com/estside/-Aquasweep' }],
   },
-  {
-    title: 'Incline',
-    image: '/incline.png',
-    imageClass: 'incline-shot',
-    description: 'Geospatial interfaces supporting climate adaptation, resilience, and community engagement through interactive data exploration.',
-    result: 'Production Django UI · interactive Leaflet mapping',
-    tools: ['Django', 'Leaflet.js', 'JavaScript'],
-    links: [{ label: 'Live site', href: 'https://incline.iitmandi.ac.in/' }],
-  },
 ];
 
 const socialLinks = [
@@ -156,6 +147,10 @@ function App() {
               <p className="timeline-date">JAN — MAR 2026</p>
               <div><h2>Morsesbiz</h2><p className="timeline-role">Web Development Intern · Remote</p><p>Built practical systems across data processing, asynchronous messaging, and billing automation.</p><ul><li>AI-driven verification</li><li>Async messaging APIs</li><li>Invoice automation</li></ul><div className="impact-notes"><p><strong>AI data processing:</strong> Developed high-throughput scraping pipelines with AI-driven content verification for 10,000+ daily entries.</p><p><strong>System integration:</strong> Integrated async messaging APIs for real-time alerts and cross-platform engagement.</p><p><strong>Billing ops:</strong> Built automated invoice generation that reduced manual processing time by 40%.</p></div></div>
             </article>
+            <article className="timeline-item">
+              <p className="timeline-date">AUG — DEC 2024</p>
+              <div><h2>Himpact Lab, IIT Mandi</h2><p className="timeline-role">Frontend Developer Intern · Mandi, India</p><p>Built the first production-ready interface for <a className="inline-link" href="https://incline.iitmandi.ac.in/" target="_blank" rel="noreferrer">Incline</a>, a climate-adaptation platform for resilience and community engagement.</p><ul><li>Django templates</li><li>Leaflet.js</li><li>Vanilla JavaScript</li></ul><div className="impact-notes"><p><strong>Interactive mapping:</strong> Integrated Leaflet maps with server-side data, responsive location clicks, and dynamic plot generation.</p><p><strong>Production handoff:</strong> Delivered a responsive UI optimized for desktop and mobile before handover to the next developer.</p></div></div>
+            </article>
           </div>
         </section>
 
@@ -196,7 +191,7 @@ function App() {
         <footer>Designed and built by Saurav Kumar <span>·</span> Bioengineering × AI × Robotics</footer>
       </main>
 
-      {resumeOpen && <div className="resume-dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="resume-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setResumeOpen(false); }}><div className="resume-dialog"><div className="resume-dialog-header"><span id="resume-title">Saurav Kumar — Résumé · Updated 2026</span><button onClick={() => setResumeOpen(false)} aria-label="Close résumé"><X size={19} /></button></div><iframe title="Saurav Kumar résumé" src="/Saurav_updated-4.pdf#view=FitH&toolbar=0" /></div></div>}
+      {resumeOpen && <div className="resume-dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="resume-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setResumeOpen(false); }}><div className="resume-dialog"><div className="resume-dialog-header"><span id="resume-title">Saurav Kumar — Résumé · Full-page preview</span><button onClick={() => setResumeOpen(false)} aria-label="Close résumé"><X size={19} /></button></div><div className="resume-page-preview"><img src="/Saurav_updated-4-preview.png" alt="Saurav Kumar's complete one-page résumé" /></div></div></div>}
     </div>
   );
 }
