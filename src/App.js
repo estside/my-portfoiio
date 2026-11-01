@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   Check,
   Code2,
+  Download,
   FileText,
   Github,
   Instagram,
@@ -31,12 +32,11 @@ const projects = [
     title: 'BioGraph AI',
     image: '/biograph-1aar-3dmol.png',
     imageClass: 'biograph-shot',
-    description: 'A pre-synthesis computational assay that turns protein-stability prediction into a usable research workflow, pairing a Django REST gateway with a React dashboard and 3Dmol.js molecular viewer.',
+    description: 'A pre-synthesis computational assay that turns protein-stability prediction into a usable research workflow, pairing a Django REST gateway with a focused React research dashboard.',
     result: 'Deployed full-stack interface for ΔΔG predictions',
-    tools: ['Django REST', 'React', '3Dmol.js', 'Tailwind CSS'],
+    tools: ['Django REST', 'React', 'Hugging Face', 'Tailwind CSS'],
     links: [
       { label: 'Live site', href: 'https://biograph-tan.vercel.app' },
-      { label: '3D viewer', href: 'https://3dmol.org/viewer.html?pdb=1AAR&style=cartoon:color~spectrum' },
       { label: 'GitHub', href: 'https://github.com/estside/Biograph' },
     ],
   },
@@ -215,7 +215,7 @@ function App() {
         <footer>Designed and built by Saurav Kumar <span>·</span> Bioengineering × AI × Robotics</footer>
       </main>
 
-      {resumeOpen && <div className="resume-dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="resume-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setResumeOpen(false); }}><div className="resume-dialog"><div className="resume-dialog-header"><span id="resume-title">Saurav Kumar — Résumé · Full-page preview</span><button onClick={() => setResumeOpen(false)} aria-label="Close résumé"><X size={19} /></button></div><div className="resume-page-preview"><img src="/Saurav_updated-4-preview.png" alt="Saurav Kumar's complete one-page résumé" /></div></div></div>}
+      {resumeOpen && <div className="resume-dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="resume-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setResumeOpen(false); }}><div className="resume-dialog"><div className="resume-dialog-header"><span id="resume-title">Saurav Kumar — Résumé · Full-page preview</span><div className="resume-dialog-actions"><a className="resume-download" href="/Saurav_updated-4.pdf" download="Saurav_Kumar_Resume.pdf"><Download size={15} /> Download PDF</a><button onClick={() => setResumeOpen(false)} aria-label="Close résumé"><X size={19} /></button></div></div><div className="resume-page-preview"><img src="/Saurav_updated-4-preview.png" alt="Saurav Kumar's complete one-page résumé" /></div></div></div>}
       {auditPreviewOpen && <div className="audit-preview-backdrop" role="dialog" aria-modal="true" aria-labelledby="audit-preview-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setAuditPreviewOpen(false); }}><section className="audit-preview-dialog"><header><div><p>AI SLIDE CONSISTENCY ANALYZER</p><h2 id="audit-preview-title">Sample analysis report</h2></div><button onClick={() => setAuditPreviewOpen(false)} aria-label="Close sample analysis"><X size={19} /></button></header><div className="audit-preview-meta"><span>SAMPLE_DECK.PPTX</span><span>REPORT EXCERPT</span><span>GEMINI ANALYSIS</span></div><div className="audit-findings"><article><p>SLIDES 01 ↔ 02 · FACTUAL CONFLICT</p><h3>Deck creation speed claim</h3><div><strong>2× faster</strong><i>↔</i><strong>3× faster</strong></div><span>The same product is described with contradictory speed claims.</span></article><article><p>SLIDE 03 · CALCULATION ERROR</p><h3>Monthly time savings total</h3><div><strong>50 hours</strong><i>↔</i><strong>40 hours</strong></div><span>The headline total does not match the five itemized savings values.</span></article><article><p>SLIDES 01 ↔ 06 · NARRATIVE GAP</p><h3>Disjointed product focus</h3><div><strong>Noogat</strong><i>↔</i><strong>Copilot / Gamma</strong></div><span>The deck changes subject without establishing how the products relate.</span></article></div><footer>Real issues extracted from the repository&apos;s sample report. <a href="https://github.com/estside/PPT_Inconsistency" target="_blank" rel="noreferrer">View source <MoveUpRight size={13} /></a></footer></section></div>}
     </div>
   );
