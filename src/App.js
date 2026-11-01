@@ -28,6 +28,19 @@ const projects = [
     ],
   },
   {
+    title: 'BioGraph AI',
+    image: '/biograph-1aar-3dmol.png',
+    imageClass: 'biograph-shot',
+    description: 'A pre-synthesis computational assay that turns protein-stability prediction into a usable research workflow, pairing a Django REST gateway with a React dashboard and 3Dmol.js molecular viewer.',
+    result: 'Deployed full-stack interface for ΔΔG predictions',
+    tools: ['Django REST', 'React', '3Dmol.js', 'Tailwind CSS'],
+    links: [
+      { label: 'Live site', href: 'https://biograph-tan.vercel.app' },
+      { label: '3D viewer', href: 'https://3dmol.org/viewer.html?pdb=1AAR&style=cartoon:color~spectrum' },
+      { label: 'GitHub', href: 'https://github.com/estside/Biograph' },
+    ],
+  },
+  {
     title: 'Vaya',
     image: '/vaya.png',
     description: 'A healthcare platform for doctor discovery, appointments, report handling, and encrypted real-time patient-doctor chat.',
@@ -42,6 +55,15 @@ const projects = [
     result: '20 FPS streaming · ~93% lab detection accuracy · ±3 cm depth error',
     tools: ['OpenCV', 'ROS', 'Arduino', 'Raspberry Pi'],
     links: [{ label: 'GitHub', href: 'https://github.com/estside/-Aquasweep' }],
+  },
+  {
+    title: 'AI Slide Consistency Analyzer',
+    image: '/slide-audit-preview.svg',
+    imageClass: 'slide-audit-shot',
+    description: 'A web tool that inspects PowerPoint decks for conflicting numerical data, contradictory claims, and timeline mismatches, streaming the analysis to the browser as it runs.',
+    result: 'Gemini-powered pairwise slide audit with a downloadable report',
+    tools: ['Django', 'Gemini 2.5 Flash', 'python-pptx', 'SSE'],
+    links: [{ label: 'GitHub', href: 'https://github.com/estside/PPT_Inconsistency' }],
   },
 ];
 

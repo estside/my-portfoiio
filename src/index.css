@@ -38,3 +38,6 @@ button, a { font: inherit; } button { cursor: pointer; } a { color: inherit; }
 /* Keep the one-page résumé legible while fitting it entirely in the viewport. */
 .inline-link { color: var(--mint); text-decoration: underline; text-underline-offset: 3px; }.inline-link:hover { color: var(--lime); }.resume-dialog { height: calc(100vh - 1.3rem); max-height: 950px; grid-template-rows: 46px minmax(0, 1fr); }.resume-page-preview { position: relative; min-height: 0; height: 100%; box-sizing: border-box; overflow: hidden; background: #fff; }.resume-page-preview img { position: absolute; inset: .75rem; display: block; width: calc(100% - 1.5rem); height: calc(100% - 1.5rem); max-width: none; max-height: none; object-fit: contain; }
 @media (max-width: 760px) { .resume-dialog { max-height: calc(100vh - .7rem); }.resume-page-preview { height: calc(100vh - 4rem); }.resume-page-preview img { inset: .25rem; width: calc(100% - .5rem); height: calc(100% - .5rem); } }
+
+/* Real 3Dmol screenshot plus a deliberately simple, code-drawn deck audit. */
+.project-image-wrap .biograph-shot { object-fit: cover; object-position: center 44%; filter: saturate(.94) contrast(1.06); }.project-image-wrap .slide-audit-shot { object-fit: cover; object-position: center; filter: saturate(.92) contrast(1.03); }
