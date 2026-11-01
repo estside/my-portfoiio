@@ -60,6 +60,7 @@ const projects = [
     title: 'AI Slide Consistency Analyzer',
     image: '/slide-audit-preview.svg',
     imageClass: 'slide-audit-shot',
+    preview: true,
     description: 'A web tool that inspects PowerPoint decks for conflicting numerical data, contradictory claims, and timeline mismatches, streaming the analysis to the browser as it runs.',
     result: 'Gemini-powered pairwise slide audit with a downloadable report',
     tools: ['Django', 'Gemini 2.5 Flash', 'python-pptx', 'SSE'],
@@ -78,6 +79,7 @@ const socialLinks = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [auditPreviewOpen, setAuditPreviewOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -88,15 +90,15 @@ function App() {
 
   useEffect(() => {
     const closeOnEscape = (event) => {
-      if (event.key === 'Escape') setResumeOpen(false);
+      if (event.key === 'Escape') { setResumeOpen(false); setAuditPreviewOpen(false); }
     };
-    document.body.style.overflow = resumeOpen ? 'hidden' : '';
+    document.body.style.overflow = resumeOpen || auditPreviewOpen ? 'hidden' : '';
     window.addEventListener('keydown', closeOnEscape);
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', closeOnEscape);
     };
-  }, [resumeOpen]);
+  }, [resumeOpen, auditPreviewOpen]);
 
   const copyEmail = async () => {
     try {
@@ -181,7 +183,7 @@ function App() {
           <div className="project-list">
             {projects.map((project, index) => <article className="project-entry" key={project.title}>
               <div className="project-image-wrap"><img src={project.image} alt={`${project.title} project preview`} className={project.imageClass || ''} /><span>{String(index + 1).padStart(2, '0')}</span></div>
-              <div className="project-text"><h2>{project.title}</h2><p>{project.description}</p><p className="project-result">{project.result}</p><div className="project-tools">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div><div className="project-actions">{project.links.map((link) => <a key={link.label} href={link.href} target="_blank" rel="noreferrer">{link.label} <MoveUpRight size={14} /></a>)}</div></div>
+              <div className="project-text"><h2>{project.title}</h2><p>{project.description}</p><p className="project-result">{project.result}</p><div className="project-tools">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div><div className="project-actions">{project.preview && <button type="button" onClick={() => setAuditPreviewOpen(true)}>Preview report <MoveUpRight size={14} /></button>}{project.links.map((link) => <a key={link.label} href={link.href} target="_blank" rel="noreferrer">{link.label} <MoveUpRight size={14} /></a>)}</div></div>
             </article>)}
           </div>
         </section>
@@ -214,6 +216,7 @@ function App() {
       </main>
 
       {resumeOpen && <div className="resume-dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="resume-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setResumeOpen(false); }}><div className="resume-dialog"><div className="resume-dialog-header"><span id="resume-title">Saurav Kumar — Résumé · Full-page preview</span><button onClick={() => setResumeOpen(false)} aria-label="Close résumé"><X size={19} /></button></div><div className="resume-page-preview"><img src="/Saurav_updated-4-preview.png" alt="Saurav Kumar's complete one-page résumé" /></div></div></div>}
+      {auditPreviewOpen && <div className="audit-preview-backdrop" role="dialog" aria-modal="true" aria-labelledby="audit-preview-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setAuditPreviewOpen(false); }}><section className="audit-preview-dialog"><header><div><p>AI SLIDE CONSISTENCY ANALYZER</p><h2 id="audit-preview-title">Sample analysis report</h2></div><button onClick={() => setAuditPreviewOpen(false)} aria-label="Close sample analysis"><X size={19} /></button></header><div className="audit-preview-meta"><span>SAMPLE_DECK.PPTX</span><span>REPORT EXCERPT</span><span>GEMINI ANALYSIS</span></div><div className="audit-findings"><article><p>SLIDES 01 ↔ 02 · FACTUAL CONFLICT</p><h3>Deck creation speed claim</h3><div><strong>2× faster</strong><i>↔</i><strong>3× faster</strong></div><span>The same product is described with contradictory speed claims.</span></article><article><p>SLIDE 03 · CALCULATION ERROR</p><h3>Monthly time savings total</h3><div><strong>50 hours</strong><i>↔</i><strong>40 hours</strong></div><span>The headline total does not match the five itemized savings values.</span></article><article><p>SLIDES 01 ↔ 06 · NARRATIVE GAP</p><h3>Disjointed product focus</h3><div><strong>Noogat</strong><i>↔</i><strong>Copilot / Gamma</strong></div><span>The deck changes subject without establishing how the products relate.</span></article></div><footer>Real issues extracted from the repository&apos;s sample report. <a href="https://github.com/estside/PPT_Inconsistency" target="_blank" rel="noreferrer">View source <MoveUpRight size={13} /></a></footer></section></div>}
     </div>
   );
 }
