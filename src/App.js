@@ -167,10 +167,10 @@ function App() {
         <section className="content-section toolkit-section" id="toolkit">
           <p className="section-kicker">05 / TOOLKIT</p>
           <div className="toolkit-grid">
-            <article><Code2 size={20} /><h2>Languages</h2><p>Python, C++, JavaScript, SQL, HTML/CSS, Perl</p></article>
-            <article><span className="toolkit-symbol">λ</span><h2>Frameworks</h2><p>React, Django, ROS, TensorFlow, Streamlit, OpenCV</p></article>
-            <article><span className="toolkit-symbol">◎</span><h2>Tools</h2><p>Git, Linux, Docker, SolidWorks, Raspberry Pi, Arduino</p></article>
-            <article><span className="toolkit-symbol">∿</span><h2>Concepts</h2><p>Sensor fusion, Kalman filtering, control systems, RAG, GNNs</p></article>
+            <article><Code2 size={20} /><h2>Languages</h2><p>Python, C++, JavaScript, Perl</p></article>
+            <article><span className="toolkit-symbol">λ</span><h2>Frameworks</h2><p>Django, TensorFlow, React, Streamlit, Flask, ROS</p></article>
+            <article><span className="toolkit-symbol">◎</span><h2>Tools</h2><p>Git, Linux, Docker, Raspberry Pi, Arduino, SolidWorks</p></article>
+            <article><span className="toolkit-symbol">∿</span><h2>Concepts</h2><p>Machine Learning, RAG, Graph Neural Networks, Bayesian Networks, Computer Vision, API Integration</p></article>
           </div>
         </section>
 
